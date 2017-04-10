@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <Name>BetterResponses</Name>
+    <Version>5.0.3</Version>
+    <Framework>5.0.x</Framework>
+    <Vendor>Complemento [Free]</Vendor>
+    <URL>http://www.complemento.net.br/</URL>
+    <License>GNU GENERAL PUBLIC LICENSE Version 2, June 1991</License>
+    <Description Lang="en">Create helper ACLs on AgentTicketCompose according to the selected ResponseID</Description>
+    <Filelist>
+        <File Permission="644" Location="Custom/BetterResponses.sopm"></File>
+        <File Permission="644" Location="Kernel/Output/HTML/Templates/Standard/BetterResponses.tt"></File>
+        <File Permission="644" Location="Kernel/Output/HTML/Ligero/OutputFilterBetterResponses.pm"></File>
+        <File Permission="644" Location="Kernel/Config/Files/BetterResponses.xml"></File>
+        <File Permission="644" Location="var/packagesetup/BetterResponses.pm"></File>
+    </Filelist>
+	<CodeInstall Type="post">
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}-&gt;{Name}-&gt;{Content};
+        $Kernel::OM-&gt;Get($CodeModule)-&gt;CodeInstall();
+    </CodeInstall>
+	<CodeUpgrade Type="post">
+        my $CodeModule = 'var::packagesetup::' . $Param{Structure}-&gt;{Name}-&gt;{Content};
+        $Kernel::OM-&gt;Get($CodeModule)-&gt;CodeUpgrade();
+    </CodeUpgrade>
+
+</otrs_package>
+

@@ -1,0 +1,23 @@
+[% WRAPPER JSOnDocumentComplete %]
+<script type="text/javascript">//<![CDATA[
+
+$( document ).ready(function() {
+    BetterResponses();
+});
+
+# <!--Core.App.Subscribe('Event.AJAX.FunctionCall.Callback', function(Data) {-->
+# <!--    FillSB();-->
+# <!--});-->
+
+function BetterResponses(){
+ $(".Row_DynamicField_ResponseID").hide();
+ $("#DynamicField_ResponseID").val('[% Data.ResponseID %]');
+ $("#StateID").val('[% Data.DefaultStateID %]');
+ 
+ 
+ Core.AJAX.FormUpdate($('#ComposeTicket'), 'AJAXUpdate', 'StateID', [ ]);
+}
+
+	//]]></script>
+[% END %]
+
