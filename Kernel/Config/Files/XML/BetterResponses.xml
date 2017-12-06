@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<otrs_config version="1.0" init="Application">
-    <ConfigItem Name="Frontend::Output::FilterElementPost###OutputFilterBetterResponses" Required="0" Valid="1">
+<otrs_config version="2.0" init="Application">
+    <Setting Name="Frontend::Output::FilterElementPost###OutputFilterBetterResponses" Required="0" Valid="1">
         <Description Translatable="1">Complemento Fill Process Article Subject and Body</Description>
-        <Group>Ligero</Group>
-        <SubGroup>OutputFilter</SubGroup>
-        <Setting>
+        <Navigation>Frontend::Base::OutputFilter</Navigation>
+        <Value>
             <Hash>
                 <Item Key="Module">Kernel::Output::HTML::Ligero::OutputFilterBetterResponses</Item>
                 <Item Key="Templates">
@@ -13,17 +12,16 @@
                     </Hash>
                 </Item>
             </Hash>
-        </Setting>
-    </ConfigItem>
-    <ConfigItem Name="BetterResponses###DefaultStateID" Required="0" Valid="1">
+        </Value>
+    </Setting>
+    <Setting Name="BetterResponses###DefaultStateID" Required="0" Valid="1">
         <Description Translatable="1">Define the default state ID for the selected answer template on AgentTicketCompose.
         Key is the ResponseID, Content is the Default State ID for this Responde template.</Description>
-        <Group>Ligero</Group>
-        <SubGroup>BetterResponses</SubGroup>
-        <Setting>
+        <Navigation>BetterResponses</Navigation>
+        <Value>
             <Hash>
             </Hash>
-        </Setting>
-    </ConfigItem>
+        </Value>
+    </Setting>
 
 </otrs_config>
